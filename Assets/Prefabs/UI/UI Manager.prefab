@@ -3529,7 +3529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &932657545234833554
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3645,7 +3645,7 @@ Canvas:
   m_GameObject: {fileID: 932657545539644402}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 10
   m_PixelPerfect: 0
@@ -3709,12 +3709,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _appBar: {fileID: 932657546651616255}
+  _bottomNav: {fileID: 932657545745357987}
   _selectMainMenu: {fileID: 953111339}
   _selectRegion: {fileID: 1250978572}
   _selectLevel: {fileID: 2051211974}
   _gameplay: {fileID: 694549916}
   _levelComplete: {fileID: 1944581201}
-  _bottomNav: {fileID: 932657545745357987}
 --- !u!1 &932657545745357987
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,14 +16,10 @@ public class GameManager : Singleton<GameManager>
 
     [Header("UI Initialization")]
     [SerializeField] List<string> SceneName;
-    Camera mainCamera;
 
     private void Start()
     {
-        mainCamera = Camera.main;
-
-        _uiManagerCanvas = Instantiate(UIManager).GetComponent<Canvas>();
-        _uiManagerCanvas.worldCamera = mainCamera;
+        Instantiate(UIManager);
 
         DontDestroyOnLoad(gameObject);
     }
