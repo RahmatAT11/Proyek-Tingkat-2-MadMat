@@ -129,13 +129,7 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(2);
 
-        if (UIManager.Instance.SelectRegion.activeInHierarchy)
-        {
-            UIManager.Instance.SelectRegion.SetActive(false);
-
-            UIManager.Instance.AppBar.SetActive(true);
-            UIManager.Instance.SelectLevel.SetActive(true);
-        }
+        UIManager.Instance.GoToRegionMenu();
 
         _currentGameScene = GameScene.LEVEL_MENU;
     }
@@ -144,22 +138,12 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(3);
 
-        if (UIManager.Instance.SelectLevel.activeInHierarchy)
-        {
-            UIManager.Instance.SelectLevel.SetActive(false);
-
-            UIManager.Instance.AppBar.SetActive(true);
-            UIManager.Instance.BottomNav.SetActive(true);
-            UIManager.Instance.Gameplay.SetActive(true);
-        }
+        UIManager.Instance.GoToLevelMenu();
 
         _currentGameScene = GameScene.GAMEPLAY;
     }
     #endregion
 
-    #region Data
-    //private void 
-    #endregion
     public enum GameScene
     {
         MAIN_MENU,

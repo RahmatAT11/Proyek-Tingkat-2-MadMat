@@ -15,9 +15,9 @@ public class Level : MonoBehaviour
             return _level;
         }
 
-        private set
+        set
         {
-
+            _level = value;
         }
     }
 

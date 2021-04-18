@@ -7,6 +7,7 @@ public class UIManager : Singleton<UIManager>
     // UI Manager mengatur
     // Bagaimana User Interface setiap scene (button apa yang harus ditampilkan, konten seperti apa, dll)
 
+    #region Field
     [Header("Navigation Component")]
     [SerializeField] GameObject _appBar;
     public GameObject AppBar
@@ -86,10 +87,7 @@ public class UIManager : Singleton<UIManager>
 
         private set { }
     }
-
-    [Header("Prefabs")]
-    [SerializeField] GameObject _prefabRegion;
-    [SerializeField] GameObject _prefabLevel;
+    #endregion
 
     private void Start()
     {
@@ -115,6 +113,29 @@ public class UIManager : Singleton<UIManager>
         {
             ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
             appBarScript.ScreenTitle.text = "Level";
+        }
+    }
+
+    public void GoToRegionMenu()
+    {
+        if (SelectRegion.activeInHierarchy)
+        {
+            SelectRegion.SetActive(false);
+
+            AppBar.SetActive(true);
+            SelectLevel.SetActive(true);
+        }
+    }
+
+    public void GoToLevelMenu()
+    {
+        if (SelectLevel.activeInHierarchy)
+        {
+            SelectLevel.SetActive(false);
+
+            AppBar.SetActive(true);
+            BottomNav.SetActive(true);
+            Gameplay.SetActive(true);
         }
     }
 }

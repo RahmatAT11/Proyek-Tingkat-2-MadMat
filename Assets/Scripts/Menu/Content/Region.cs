@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class Region : MonoBehaviour
 {
     [Header("Region")]
-    [SerializeField] LevelScriptableObject _region;
-    public LevelScriptableObject ThisRegion
+    [SerializeField] RegionScriptableObject _region;
+    public RegionScriptableObject ThisRegion
     {
         get
         {
@@ -21,7 +21,6 @@ public class Region : MonoBehaviour
 
         }
     }
-
     Button _regionButton;
 
     public UnityEvent OnRegionClicked;

@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80a04dbdb0274f47a771353db4b7285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _region: {fileID: 11400000, guid: aaacf79dc14b3da48badd8e84cf503c9, type: 2}
+  _region: {fileID: 0}
   OnRegionClicked:
     m_PersistentCalls:
       m_Calls: []
