@@ -87,6 +87,10 @@ public class UIManager : Singleton<UIManager>
         private set { }
     }
 
+    [Header("Prefabs")]
+    [SerializeField] GameObject _prefabRegion;
+    [SerializeField] GameObject _prefabLevel;
+
     private void Start()
     {
         _selectMainMenu.SetActive(true);

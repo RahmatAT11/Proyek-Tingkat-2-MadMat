@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class Region : MonoBehaviour
 {
     [Header("Region")]
-    [SerializeField] RegionScriptableObject _region;
-    public RegionScriptableObject ThisRegion
+    [SerializeField] LevelScriptableObject _region;
+    public LevelScriptableObject ThisRegion
     {
         get
         {

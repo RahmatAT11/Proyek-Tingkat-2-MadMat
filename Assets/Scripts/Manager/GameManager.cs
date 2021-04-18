@@ -139,8 +139,27 @@ public class GameManager : Singleton<GameManager>
 
         _currentGameScene = GameScene.LEVEL_MENU;
     }
+
+    public void ClickLevel()
+    {
+        SceneManager.LoadScene(3);
+
+        if (UIManager.Instance.SelectLevel.activeInHierarchy)
+        {
+            UIManager.Instance.SelectLevel.SetActive(false);
+
+            UIManager.Instance.AppBar.SetActive(true);
+            UIManager.Instance.BottomNav.SetActive(true);
+            UIManager.Instance.Gameplay.SetActive(true);
+        }
+
+        _currentGameScene = GameScene.GAMEPLAY;
+    }
     #endregion
 
+    #region Data
+    //private void 
+    #endregion
     public enum GameScene
     {
         MAIN_MENU,
