@@ -18,8 +18,6 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        OnPlayButtonClicked = new UnityEvent();
-
         _playButton.onClick.AddListener(HandlePlayButtonListener);
         _optionsButton.onClick.AddListener(HandleOptionsButtonListener);
         _quitButton.onClick.AddListener(HandleQuitButtonListener);

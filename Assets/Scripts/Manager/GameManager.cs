@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -17,6 +18,19 @@ public class GameManager : Singleton<GameManager>
 
     [Header("UI Initialization")]
     [SerializeField] List<string> SceneName;
+
+    // Handling Game Scene
+    GameScene _currentGameScene = GameScene.MAIN_MENU;
+    public GameScene CurrentGameScene
+    {
+        get
+        {
+            return _currentGameScene;
+        }
+    }
+
+    public UnityEvent<GameScene, GameScene> OnGameSceneChanged;
+
     #endregion
 
     #region Initialization
@@ -38,8 +52,8 @@ public class GameManager : Singleton<GameManager>
     }
     #endregion
 
-    
 
+    #region Button Funtionality
     public void Play()
     {
         SceneManager.LoadScene(1);
@@ -51,6 +65,8 @@ public class GameManager : Singleton<GameManager>
             UIManager.Instance.AppBar.SetActive(true);
             UIManager.Instance.SelectRegion.SetActive(true);
         }
+
+        _currentGameScene = GameScene.REGION_MENU;
     }
 
     public void Options()
@@ -61,5 +77,60 @@ public class GameManager : Singleton<GameManager>
     public void Quit()
     {
         Debug.Log("Quitting.....");
+    }
+
+    public void BackFromRegion()
+    {
+        SceneManager.LoadScene(0);
+
+        if (UIManager.Instance.SelectRegion.activeInHierarchy)
+        {
+            UIManager.Instance.SelectRegion.SetActive(false);
+
+            UIManager.Instance.AppBar.SetActive(false);
+            UIManager.Instance.SelectMainMenu.SetActive(true);
+        }
+
+        _currentGameScene = GameScene.MAIN_MENU;
+    }
+
+    public void BackFromLevel()
+    {
+        SceneManager.LoadScene(1);
+
+        if (UIManager.Instance.SelectLevel.activeInHierarchy)
+        {
+            UIManager.Instance.SelectLevel.SetActive(false);
+
+            UIManager.Instance.AppBar.SetActive(true);
+            UIManager.Instance.SelectRegion.SetActive(true);
+        }
+
+        _currentGameScene = GameScene.REGION_MENU;
+    }
+
+    public void BackFromGameplay()
+    {
+        SceneManager.LoadScene(0);
+
+        if (UIManager.Instance.Gameplay.activeInHierarchy)
+        {
+            UIManager.Instance.Gameplay.SetActive(false);
+            UIManager.Instance.BottomNav.SetActive(false);
+
+            UIManager.Instance.AppBar.SetActive(true);
+            UIManager.Instance.SelectLevel.SetActive(true);
+        }
+
+        _currentGameScene = GameScene.LEVEL_MENU;
+    }
+    #endregion
+
+    public enum GameScene
+    {
+        MAIN_MENU,
+        REGION_MENU,
+        LEVEL_MENU,
+        GAMEPLAY
     }
 }

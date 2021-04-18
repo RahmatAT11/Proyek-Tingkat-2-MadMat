@@ -92,4 +92,25 @@ public class UIManager : Singleton<UIManager>
         _selectMainMenu.SetActive(true);
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Update()
+    {
+        if (GameManager.Instance.CurrentGameScene == GameManager.GameScene.REGION_MENU)
+        {
+            ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
+            appBarScript.ScreenTitle.text = "Choose Region";
+        }
+
+        if (GameManager.Instance.CurrentGameScene == GameManager.GameScene.LEVEL_MENU)
+        {
+            ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
+            appBarScript.ScreenTitle.text = "Choose Level";
+        }
+
+        if (GameManager.Instance.CurrentGameScene == GameManager.GameScene.GAMEPLAY)
+        {
+            ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
+            appBarScript.ScreenTitle.text = "Level";
+        }
+    }
 }
