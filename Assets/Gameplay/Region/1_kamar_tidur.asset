@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 102a28e4aef74174f93a9d73ce154f0c, type: 3}
-  m_Name: Kamar Tidur
+  m_Name: 1_kamar_tidur
   m_EditorClassIdentifier: 
   RegionName: Kamar Tidur
   Levels:
