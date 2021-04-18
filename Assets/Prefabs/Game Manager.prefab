@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ad8bd400121804eac856e62e8951f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 932657545539644402, guid: 5e7bbfadbfbaa454997382dd0e29aa05,
-    type: 3}
+  _systemPrefabs:
+  - {fileID: 932657545539644402, guid: 5e7bbfadbfbaa454997382dd0e29aa05, type: 3}
   SceneName:
   - Main Menu Scene
   - Select Region Menu Scene

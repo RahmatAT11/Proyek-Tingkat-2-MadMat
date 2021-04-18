@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -10,17 +10,56 @@ public class GameManager : Singleton<GameManager>
     // Memanggil Manager lain
     // Mengatur game state
 
+    #region Field
     [Header("Managers")]
-    [SerializeField] GameObject UIManager;
-    Canvas _uiManagerCanvas;
+    [SerializeField] GameObject[] _systemPrefabs;
+    List<GameObject> _instanceSystemPrefabs;
 
     [Header("UI Initialization")]
     [SerializeField] List<string> SceneName;
+    #endregion
 
+    #region Initialization
     private void Start()
     {
-        Instantiate(UIManager);
+        _instanceSystemPrefabs = new List<GameObject>();
+        InstantiateSystemPrefabs();
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void InstantiateSystemPrefabs()
+    {
+        for (int i = 0; i < _systemPrefabs.Length; i++)
+        {
+            GameObject prefabsInstance = Instantiate(_systemPrefabs[i]);
+            _instanceSystemPrefabs.Add(prefabsInstance);
+        }
+    }
+    #endregion
+
+    
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+
+        if (UIManager.Instance.SelectMainMenu.activeInHierarchy)
+        {
+            UIManager.Instance.SelectMainMenu.SetActive(false);
+
+            UIManager.Instance.AppBar.SetActive(true);
+            UIManager.Instance.SelectRegion.SetActive(true);
+        }
+    }
+
+    public void Options()
+    {
+        Debug.Log("Opening Options Menu.....");
+    }
+
+    public void Quit()
+    {
+        Debug.Log("Quitting.....");
     }
 }
