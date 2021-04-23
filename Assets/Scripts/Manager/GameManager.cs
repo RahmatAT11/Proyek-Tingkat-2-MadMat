@@ -50,6 +50,20 @@ public class GameManager : Singleton<GameManager>
             _instanceSystemPrefabs.Add(prefabsInstance);
         }
     }
+
+    public void LoadAllLevelOnRegionClicked(Region region)
+    {
+        int index = 0;
+
+        foreach (LevelScriptableObject levelScriptable in region.ThisRegion.Levels)
+        {
+            LevelMenu levelMenu = UIManager.Instance.SelectLevel.GetComponent<LevelMenu>();
+            levelMenu.LevelObjects[index].GetComponent<Level>().ThisLevel = levelScriptable;
+            index++;
+        }
+
+        index = 0;
+    }
     #endregion
 
 

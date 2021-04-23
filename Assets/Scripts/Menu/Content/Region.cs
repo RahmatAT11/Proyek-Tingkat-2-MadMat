@@ -16,10 +16,7 @@ public class Region : MonoBehaviour
             return _region;
         }
 
-        private set
-        {
-
-        }
+        private set { }
     }
     Button _regionButton;
 
@@ -34,6 +31,8 @@ public class Region : MonoBehaviour
     private void HandleRegionButtonClicked()
     {
         OnRegionClicked.AddListener(GameManager.Instance.ClickRegion);
+
+        GameManager.Instance.LoadAllLevelOnRegionClicked(this);
 
         if (OnRegionClicked != null)
         {
