@@ -17,19 +17,19 @@ public class GameManager : Singleton<GameManager>
     List<GameObject> _instanceSystemPrefabs;
 
     [Header("UI Initialization")]
-    [SerializeField] List<string> SceneName;
+    [SerializeField] List<string> _sceneName;
 
-    // Handling Game Scene
-    GameScene _currentGameScene = GameScene.MAIN_MENU;
-    public GameScene CurrentGameScene
+    // Handling Fragment of the Game
+    private FragmentState _currentFragmentState = FragmentState.MAIN_MENU;
+    public FragmentState CurrentFragmentState
     {
         get
         {
-            return _currentGameScene;
+            return _currentFragmentState;
         }
     }
 
-    public UnityEvent<GameScene, GameScene> OnGameSceneChanged;
+    public UnityAction<FragmentState, FragmentState> OnFragmentChanged = delegate { };
 
     #endregion
 
@@ -65,22 +65,17 @@ public class GameManager : Singleton<GameManager>
         index = 0;
     }
     #endregion
-
-
+    
     #region Button Funtionality
+
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        ChangeFragment(FragmentState.REGION_MENU, FragmentState.MAIN_MENU);
 
-        if (UIManager.Instance.SelectMainMenu.activeInHierarchy)
-        {
-            UIManager.Instance.SelectMainMenu.SetActive(false);
+        GameObject nextMenu = UIManager.Instance.SelectRegion;
+        GameObject currentMenu = UIManager.Instance.SelectMainMenu;
 
-            UIManager.Instance.AppBar.SetActive(true);
-            UIManager.Instance.SelectRegion.SetActive(true);
-        }
-
-        _currentGameScene = GameScene.REGION_MENU;
+        UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
     }
 
     public void Options()
@@ -91,78 +86,86 @@ public class GameManager : Singleton<GameManager>
     public void Quit()
     {
         Debug.Log("Quitting.....");
+        Application.Quit();
     }
-
-    public void BackFromRegion()
+    
+    public void Back()
     {
-        SceneManager.LoadScene(0);
+        GameObject nextMenu = null;
+        GameObject currentMenu = null;
 
-        if (UIManager.Instance.SelectRegion.activeInHierarchy)
+        switch (_currentFragmentState)
         {
-            UIManager.Instance.SelectRegion.SetActive(false);
-
-            UIManager.Instance.AppBar.SetActive(false);
-            UIManager.Instance.SelectMainMenu.SetActive(true);
+            case FragmentState.REGION_MENU:
+                ChangeFragment(FragmentState.MAIN_MENU, FragmentState.REGION_MENU);
+                nextMenu = UIManager.Instance.SelectMainMenu;
+                currentMenu = UIManager.Instance.SelectRegion;
+                UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
+                break;
+            case FragmentState.LEVEL_MENU:
+                ChangeFragment(FragmentState.REGION_MENU, FragmentState.LEVEL_MENU);
+                nextMenu = UIManager.Instance.SelectRegion;
+                currentMenu = UIManager.Instance.SelectLevel;
+                UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
+                break;
+            case FragmentState.GAMEPLAY:
+                ChangeFragment(FragmentState.LEVEL_MENU, FragmentState.GAMEPLAY);
+                nextMenu = UIManager.Instance.SelectLevel;
+                currentMenu = UIManager.Instance.Gameplay;
+                UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
+                break;
         }
-
-        _currentGameScene = GameScene.MAIN_MENU;
     }
 
-    public void BackFromLevel()
+    public void Region()
     {
-        SceneManager.LoadScene(1);
+        ChangeFragment(FragmentState.LEVEL_MENU, FragmentState.REGION_MENU);
 
-        if (UIManager.Instance.SelectLevel.activeInHierarchy)
-        {
-            UIManager.Instance.SelectLevel.SetActive(false);
+        GameObject nextMenu = UIManager.Instance.SelectLevel;
+        GameObject currentMenu = UIManager.Instance.SelectRegion;
 
-            UIManager.Instance.AppBar.SetActive(true);
-            UIManager.Instance.SelectRegion.SetActive(true);
-        }
-
-        _currentGameScene = GameScene.REGION_MENU;
+        UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
     }
 
-    public void BackFromGameplay()
+    public void Level()
     {
-        SceneManager.LoadScene(0);
+        ChangeFragment(FragmentState.GAMEPLAY, FragmentState.LEVEL_MENU);
 
-        if (UIManager.Instance.Gameplay.activeInHierarchy)
-        {
-            UIManager.Instance.Gameplay.SetActive(false);
-            UIManager.Instance.BottomNav.SetActive(false);
+        GameObject nextMenu = UIManager.Instance.Gameplay;
+        GameObject currentMenu = UIManager.Instance.SelectLevel;
 
-            UIManager.Instance.AppBar.SetActive(true);
-            UIManager.Instance.SelectLevel.SetActive(true);
-        }
-
-        _currentGameScene = GameScene.LEVEL_MENU;
+        UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
     }
 
-    public void ClickRegion()
-    {
-        SceneManager.LoadScene(2);
-
-        UIManager.Instance.GoToRegionMenu();
-
-        _currentGameScene = GameScene.LEVEL_MENU;
-    }
-
-    public void ClickLevel()
-    {
-        SceneManager.LoadScene(3);
-
-        UIManager.Instance.GoToLevelMenu();
-
-        _currentGameScene = GameScene.GAMEPLAY;
-    }
     #endregion
 
-    public enum GameScene
+    #region Fragment Change Functionality
+    void ChangeFragment(FragmentState next, FragmentState current)
     {
-        MAIN_MENU,
-        REGION_MENU,
-        LEVEL_MENU,
-        GAMEPLAY
+        // Perubahan fragment terjadi jika memiliki fragment lanjutannya
+        // Fragment akan diubah sesuai fragment selanjutnya
+        FragmentState previous = _currentFragmentState;
+
+        switch (next)
+        {
+            case FragmentState.MAIN_MENU:
+                _currentFragmentState = next;
+                break;
+            case FragmentState.REGION_MENU:
+                _currentFragmentState = next;
+                break;
+            case FragmentState.LEVEL_MENU:
+                _currentFragmentState = next;
+                break;
+            case FragmentState.GAMEPLAY:
+                _currentFragmentState = next;
+                break;
+            case FragmentState.LEVEL_COMPLETE:
+                _currentFragmentState = next;
+                break;
+        }
+
+        OnFragmentChanged(_currentFragmentState, previous);
     }
+    #endregion
 }

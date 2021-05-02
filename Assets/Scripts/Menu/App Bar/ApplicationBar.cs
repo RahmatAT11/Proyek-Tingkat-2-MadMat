@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using System;
 
 public class ApplicationBar : MonoBehaviour
 {
@@ -23,31 +24,13 @@ public class ApplicationBar : MonoBehaviour
         }
     }
 
-    public UnityEvent OnBackButtonClicked;
-    
     private void Start()
     {
-        _backButton.onClick.AddListener(HandleBackButtonListener);
+        _backButton.onClick.AddListener(HandleBackButton);
     }
 
-    private void HandleBackButtonListener()
+    private void HandleBackButton()
     {
-        OnBackButtonClicked.AddListener(GameManager.Instance.BackFromRegion);
-
-        OnBackButtonClicked.AddListener(GameManager.Instance.BackFromLevel);
-
-        OnBackButtonClicked.AddListener(GameManager.Instance.BackFromGameplay);
-
-        if (OnBackButtonClicked != null)
-        {
-            OnBackButtonClicked.Invoke();
-        }
-
-        OnBackButtonClicked.RemoveAllListeners();
-    }
-
-    private void OnApplicationQuit()
-    {
-        OnBackButtonClicked.RemoveAllListeners();
+        GameManager.Instance.Back();
     }
 }

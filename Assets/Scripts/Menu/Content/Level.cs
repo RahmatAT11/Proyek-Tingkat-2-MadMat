@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class Level : MonoBehaviour
 {
     [Header("Region")]
-    [SerializeField] LevelScriptableObject _level;
+    [SerializeField]
+    private LevelScriptableObject _level;
     public LevelScriptableObject ThisLevel
     {
         get
@@ -21,25 +23,16 @@ public class Level : MonoBehaviour
         }
     }
 
-    Button _levelButton;
-
-    public UnityEvent OnLevelClicked;
+    private Button _levelButton;
 
     private void Start()
     {
-        _levelButton = GetComponent<Button>();
-        _levelButton.onClick.AddListener(HandleLevelButtonClicked);
+        _levelButton = gameObject.GetComponent<Button>();
+        _levelButton.onClick.AddListener(HandleLevelButton);
     }
 
-    private void HandleLevelButtonClicked()
+    private void HandleLevelButton()
     {
-        OnLevelClicked.AddListener(GameManager.Instance.ClickLevel);
-
-        if (OnLevelClicked != null)
-        {
-            OnLevelClicked.Invoke();
-        }
-
-        OnLevelClicked.RemoveListener(GameManager.Instance.ClickLevel);
+        GameManager.Instance.Level();
     }
 }

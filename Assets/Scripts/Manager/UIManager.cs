@@ -95,47 +95,44 @@ public class UIManager : Singleton<UIManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
+    private void ChangeScreenTitle(string message)
     {
-        if (GameManager.Instance.CurrentGameScene == GameManager.GameScene.REGION_MENU)
-        {
-            ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
-            appBarScript.ScreenTitle.text = "Choose Region";
-        }
-
-        if (GameManager.Instance.CurrentGameScene == GameManager.GameScene.LEVEL_MENU)
-        {
-            ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
-            appBarScript.ScreenTitle.text = "Choose Level";
-        }
-
-        if (GameManager.Instance.CurrentGameScene == GameManager.GameScene.GAMEPLAY)
-        {
-            ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
-            appBarScript.ScreenTitle.text = "Level";
-        }
+        ApplicationBar appBarScript = _appBar.GetComponent<ApplicationBar>();
+        appBarScript.ScreenTitle.text = message;
     }
 
-    public void GoToRegionMenu()
+    public void ChangeActiveMenu(GameObject nextMenu, GameObject currentMenu)
     {
-        if (SelectRegion.activeInHierarchy)
+        string nextMenuName = nextMenu.name;
+        string currentMenuName = currentMenu.name;
+
+        switch (GameManager.Instance.CurrentFragmentState)
         {
-            SelectRegion.SetActive(false);
-
-            AppBar.SetActive(true);
-            SelectLevel.SetActive(true);
+            case FragmentState.MAIN_MENU:
+                AppBar.SetActive(false);
+                break;
+            case FragmentState.REGION_MENU:
+                AppBar.SetActive(true);
+                ChangeScreenTitle(nextMenuName);
+                break;
+            case FragmentState.LEVEL_MENU:
+                AppBar.SetActive(true);
+                BottomNav.SetActive(false);
+                ChangeScreenTitle(nextMenuName);
+                break;
+            case FragmentState.GAMEPLAY:
+                AppBar.SetActive(true);
+                BottomNav.SetActive(true);
+                ChangeScreenTitle(nextMenuName);
+                break;
+            case FragmentState.LEVEL_COMPLETE:
+                AppBar.SetActive(false);
+                BottomNav.SetActive(false);
+                ChangeScreenTitle(nextMenuName);
+                break;
         }
-    }
 
-    public void GoToLevelMenu()
-    {
-        if (SelectLevel.activeInHierarchy)
-        {
-            SelectLevel.SetActive(false);
-
-            AppBar.SetActive(true);
-            BottomNav.SetActive(true);
-            Gameplay.SetActive(true);
-        }
+        nextMenu.SetActive(true);
+        currentMenu.SetActive(false);
     }
 }

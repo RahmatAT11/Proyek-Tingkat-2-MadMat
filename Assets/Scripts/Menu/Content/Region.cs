@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Region : MonoBehaviour
 {
     [Header("Region")]
-    [SerializeField] RegionScriptableObject _region;
+    [SerializeField]
+    private RegionScriptableObject _region;
     public RegionScriptableObject ThisRegion
     {
         get
@@ -18,27 +15,18 @@ public class Region : MonoBehaviour
 
         private set { }
     }
-    Button _regionButton;
 
-    public UnityEvent OnRegionClicked;
+    private Button _regionButton;
 
     private void Start()
     {
-        _regionButton = GetComponent<Button>();
-        _regionButton.onClick.AddListener(HandleRegionButtonClicked);
+        _regionButton = gameObject.GetComponent<Button>();
+        _regionButton.onClick.AddListener(HandleRegionButton);
     }
 
-    private void HandleRegionButtonClicked()
+    private void HandleRegionButton()
     {
-        OnRegionClicked.AddListener(GameManager.Instance.ClickRegion);
-
+        GameManager.Instance.Region();
         GameManager.Instance.LoadAllLevelOnRegionClicked(this);
-
-        if (OnRegionClicked != null)
-        {
-            OnRegionClicked.Invoke();
-        }
-
-        OnRegionClicked.RemoveListener(GameManager.Instance.ClickRegion);
     }
 }
