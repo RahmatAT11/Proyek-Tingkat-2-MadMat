@@ -146,8 +146,10 @@ public class GameManager : Singleton<GameManager>
         GameObject currentMenu = UIManager.Instance.SelectLevel;
 
         UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
+
         current.CurrentLevel = currentLevel.ThisLevel;
         current.SetGuessPicture();
+
         bottomNav.PrevButton.gameObject.SetActive(false);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour
 {
-    [SerializeField]private LevelScriptableObject _currentLevel;
+    private LevelScriptableObject _currentLevel;
     public LevelScriptableObject CurrentLevel
     {
         get
@@ -19,7 +19,7 @@ public class Gameplay : MonoBehaviour
         }
     }
 
-    [SerializeField] private List<Sprite> _guessPictureList;
+    private List<Sprite> _guessPictureList;
     public List<Sprite> GuessPictureList
     {
         get
@@ -28,11 +28,11 @@ public class Gameplay : MonoBehaviour
         }
     }
 
-    [SerializeField]private int _totalQuestion;
-    [SerializeField]private int _correctAnswer;
+    private int _totalQuestion;
+    private int _correctAnswer;
 
     public int CurrentPictureIndex { get { return _currentPictureIndex; } set { _currentPictureIndex = value; } }
-    [SerializeField]private int _currentPictureIndex;
+    private int _currentPictureIndex;
 
     public InputAnswer inputAnswer;
     public Image showedImage;
@@ -52,9 +52,9 @@ public class Gameplay : MonoBehaviour
     {
         _guessPictureList = new List<Sprite>();
 
-        List<Sprite> pictureList = _currentLevel.LevelSprites;
-        foreach (Sprite sprite in pictureList)
+        foreach (QuestionScriptableObject question in _currentLevel.LevelQuestions)
         {
+            Sprite sprite = question.Picture;
             _guessPictureList.Add(sprite);
         }
         _totalQuestion = _guessPictureList.Count;

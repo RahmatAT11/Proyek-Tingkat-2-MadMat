@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelScriptableObject : ScriptableObject
 {
     public LevelDifficulty ThisLevelDifficulty;
-    public List<Sprite> LevelSprites;
+    public List<QuestionScriptableObject> LevelQuestions;
 
     public enum LevelDifficulty
     {
