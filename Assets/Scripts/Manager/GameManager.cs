@@ -137,6 +137,16 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
     }
 
+    public void Next()
+    {
+
+    }
+
+    public void Previous()
+    {
+
+    }
+
     #endregion
 
     #region Fragment Change Functionality
