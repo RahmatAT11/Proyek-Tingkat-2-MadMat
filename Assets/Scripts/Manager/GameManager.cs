@@ -31,6 +31,13 @@ public class GameManager : Singleton<GameManager>
 
     public UnityAction<FragmentState, FragmentState> OnFragmentChanged = delegate { };
 
+    private Gameplay current;
+    public Gameplay Current { get { return current; } }
+    private BottomNav bottomNav;
+    public BottomNav BottomNav { get { return bottomNav; } }
+    private InputAnswer inputAnswer;
+    public InputAnswer InputAnswer { get { return inputAnswer; } }
+
     #endregion
 
     #region Initialization
@@ -38,6 +45,10 @@ public class GameManager : Singleton<GameManager>
     {
         _instanceSystemPrefabs = new List<GameObject>();
         InstantiateSystemPrefabs();
+
+        current = UIManager.Instance.Gameplay.GetComponent<Gameplay>();
+        bottomNav = UIManager.Instance.BottomNav.GetComponent<BottomNav>();
+        inputAnswer = UIManager.Instance.Gameplay.GetComponentInChildren<InputAnswer>();
 
         DontDestroyOnLoad(gameObject);
     }
@@ -127,7 +138,7 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
     }
 
-    public void Level()
+    public void Level(Level currentLevel)
     {
         ChangeFragment(FragmentState.GAMEPLAY, FragmentState.LEVEL_MENU);
 
@@ -135,16 +146,25 @@ public class GameManager : Singleton<GameManager>
         GameObject currentMenu = UIManager.Instance.SelectLevel;
 
         UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
+        current.CurrentLevel = currentLevel.ThisLevel;
+        current.SetGuessPicture();
+        bottomNav.PrevButton.gameObject.SetActive(false);
     }
 
     public void Next()
     {
+        current.CurrentPictureIndex++;
 
+        inputAnswer.ResetAll();
+        current.ShowImage(current.CurrentPictureIndex);
     }
 
     public void Previous()
     {
+        current.CurrentPictureIndex--;
 
+        inputAnswer.ResetAll();
+        current.ShowImage(current.CurrentPictureIndex);
     }
 
     #endregion

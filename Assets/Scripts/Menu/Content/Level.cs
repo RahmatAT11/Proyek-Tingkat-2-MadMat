@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System;
 
 public class Level : MonoBehaviour
 {
@@ -33,6 +31,6 @@ public class Level : MonoBehaviour
 
     private void HandleLevelButton()
     {
-        GameManager.Instance.Level();
+        GameManager.Instance.Level(this);
     }
 }

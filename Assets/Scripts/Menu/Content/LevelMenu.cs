@@ -10,7 +10,5 @@ public class LevelMenu : MonoBehaviour
         {
             return _levelObjects;
         }
-
-        private set { }
     }
 }

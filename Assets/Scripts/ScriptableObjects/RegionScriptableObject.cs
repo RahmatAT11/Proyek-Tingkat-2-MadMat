@@ -6,5 +6,11 @@ using UnityEngine;
 public class RegionScriptableObject : ScriptableObject
 {
     public string RegionName;
+    public RegionType regionType;
     public List<LevelScriptableObject> Levels;
+
+    public enum RegionType
+    {
+        _1_KAMAR_TIDUR
+    }
 }
