@@ -37,6 +37,12 @@ public class BottomNav : MonoBehaviour
         {
             _nextButton.gameObject.SetActive(true);
         }
+
+        if (GameManager.Instance.Current.CorrectAnswer > 0 && GameManager.Instance.Current.CurrentPictureIndex == 
+            GameManager.Instance.Current.TotalQuestion - 1)
+        {
+            _nextButton.gameObject.SetActive(true);
+        }
     }
 
     private void HandleNextButton()

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AlreadyAnswered: 0
   Answer: 0
-  Picture: {fileID: 21300000, guid: ed5a54fe08d997d418a7c533ae18afed, type: 3}
+  Picture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

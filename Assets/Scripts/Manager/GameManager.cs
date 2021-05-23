@@ -155,10 +155,26 @@ public class GameManager : Singleton<GameManager>
 
     public void Next()
     {
-        current.CurrentPictureIndex++;
+        if (current.CorrectAnswer > 0 && current.CurrentPictureIndex == current.TotalQuestion - 1)
+        {
+            ChangeFragment(FragmentState.LEVEL_COMPLETE, FragmentState.GAMEPLAY);
 
-        inputAnswer.ResetAll();
-        current.ShowImage(current.CurrentPictureIndex);
+            GameObject nextMenu = UIManager.Instance.LevelComplete;
+            GameObject currentMenu = UIManager.Instance.Gameplay;
+
+            UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
+
+            LevelComplete levelComplete = nextMenu.GetComponent<LevelComplete>();
+            levelComplete.SetScoreAndStar(current);
+        }
+
+        else
+        {
+            current.CurrentPictureIndex++;
+
+            inputAnswer.ResetAll();
+            current.ShowImage(current.CurrentPictureIndex);
+        }
     }
 
     public void Previous()
@@ -167,6 +183,16 @@ public class GameManager : Singleton<GameManager>
 
         inputAnswer.ResetAll();
         current.ShowImage(current.CurrentPictureIndex);
+    }
+
+    public void LevelMenu()
+    {
+        ChangeFragment(FragmentState.LEVEL_MENU, FragmentState.LEVEL_COMPLETE);
+
+        GameObject nextMenu = UIManager.Instance.SelectLevel;
+        GameObject currentMenu = UIManager.Instance.LevelComplete;
+
+        UIManager.Instance.ChangeActiveMenu(nextMenu, currentMenu);
     }
 
     #endregion

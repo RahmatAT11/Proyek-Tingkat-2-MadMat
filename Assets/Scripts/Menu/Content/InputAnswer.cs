@@ -6,7 +6,6 @@ using TMPro;
 public class InputAnswer : MonoBehaviour
 {
     [SerializeField] TMP_InputField _input;
-    [SerializeField] TextMeshProUGUI _textEdit;
 
     [SerializeField] Image _answer;
     [SerializeField] Sprite _right;
@@ -50,7 +49,7 @@ public class InputAnswer : MonoBehaviour
 
     public void OnFinishEditing()
     {
-        string textEditString = _textEdit.text;
+        string textEditString = _input.text;
         string pictureName = _picture.sprite.name;
 
         // Jika input benar
@@ -75,6 +74,6 @@ public class InputAnswer : MonoBehaviour
     {
         _answer.sprite = _defaultAnswer;
         _answer.color = _transparent;
-        _textEdit.text = null;
+        _input.text = "";
     }
 }

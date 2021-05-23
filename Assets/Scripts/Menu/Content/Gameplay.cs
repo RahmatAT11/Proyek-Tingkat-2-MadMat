@@ -19,7 +19,7 @@ public class Gameplay : MonoBehaviour
         }
     }
 
-    private List<Sprite> _guessPictureList;
+    [SerializeField] private List<Sprite> _guessPictureList;
     public List<Sprite> GuessPictureList
     {
         get
@@ -28,11 +28,13 @@ public class Gameplay : MonoBehaviour
         }
     }
 
-    private int _totalQuestion;
-    private int _correctAnswer;
+    [SerializeField] private int _totalQuestion;
+    public int TotalQuestion { get { return _totalQuestion; } }
+    [SerializeField] private int _correctAnswer;
+    public int CorrectAnswer { get { return _correctAnswer; } }
 
     public int CurrentPictureIndex { get { return _currentPictureIndex; } set { _currentPictureIndex = value; } }
-    private int _currentPictureIndex;
+    [SerializeField] private int _currentPictureIndex;
 
     public InputAnswer inputAnswer;
     public Image showedImage;
@@ -63,5 +65,14 @@ public class Gameplay : MonoBehaviour
     public void ShowImage(int index)
     {
         showedImage.sprite = _guessPictureList[index];
+    }
+
+    public void ResetGameplay()
+    {
+        _currentPictureIndex = 0;
+        _guessPictureList = null;
+        _totalQuestion = 0;
+        _correctAnswer = 0;
+        showedImage.sprite = null;
     }
 }
