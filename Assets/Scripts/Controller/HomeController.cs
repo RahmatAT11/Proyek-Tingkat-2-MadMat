@@ -12,6 +12,7 @@ public class HomeController : MonoBehaviour
     [SerializeField] private Button _quitButton;
 
     [Header("Variabel User Interface")]
+    [SerializeField] private GameObject _homeMenu;
     [SerializeField] private GameObject _optionMenu;
 
     private void Awake()
