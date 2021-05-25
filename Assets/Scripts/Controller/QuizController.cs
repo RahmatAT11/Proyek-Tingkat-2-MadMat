@@ -9,6 +9,7 @@ public class QuizController : MonoBehaviour
     #region Inisialisasi Variabel
     [Header("Variabel User Interface")]
     [SerializeField] private Image _quizImage;
+    [SerializeField] private Quiz _quizDisplayed;
     [SerializeField] private TMP_InputField _quizInput;
     [SerializeField] private Image _quizCorrectImage;
 
@@ -26,5 +27,24 @@ public class QuizController : MonoBehaviour
     }
     #endregion
 
+    #region Mekanik Pengecekan Jawaban User
+    public void AnswerChecking()
+    {
+        string input = _quizInput.text.ToLower();
+        string answer = _quizDisplayed.Name.ToLower();
+        bool isCorrect = input == answer;
 
+        if (isCorrect)
+        {
+            _quizCorrectImage.sprite = _quizCorrectSprite;
+        }
+
+        else
+        {
+            _quizCorrectImage.sprite = _quizWrongSprite;
+        }
+
+        _quizCorrectImage.color = normal;
+    }
+    #endregion
 }
