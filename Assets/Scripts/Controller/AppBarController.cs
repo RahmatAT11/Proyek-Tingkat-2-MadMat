@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class AppBarController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Inisialisasi Variabel
+    [Header("Variabel Button")]
+    [SerializeField] private Button _upButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Variabel Text")]
+    [SerializeField] private TextMeshProUGUI _titleText;
+    #endregion
 }
