@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegionSO : MonoBehaviour
+[CreateAssetMenu(fileName = "Region_[RegName]", menuName = "ScriptableObjects/RegionSO", order = 3)]
+public class RegionSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Nama dan LevelSO")]
+    public string RegionName;
+    public List<LevelSO> ThisRegionLevelSos;
 }

@@ -17,9 +17,26 @@ public class HomeController : MonoBehaviour
 
     private void Awake()
     {
-        //_playButton.onClick.AddListener();
-        //_optionButton.onClick.AddListener();
-        //_quitButton.onClick.AddListener();
+        _playButton.onClick.AddListener(HandlePlayButton);
+        _optionButton.onClick.AddListener(HandleOptionButton);
+        _quitButton.onClick.AddListener(HandleQuitButton);
+    }
+    #endregion
+
+    #region Handle Button Clicks
+    private void HandlePlayButton()
+    {
+        GameManager.Instance.AudioManager.PlayButtonTap();
+    }
+
+    private void HandleOptionButton()
+    {
+        GameManager.Instance.AudioManager.PlayButtonTap();
+    }
+
+    private void HandleQuitButton()
+    {
+        GameManager.Instance.AudioManager.PlayButtonTap();
     }
     #endregion
 }
