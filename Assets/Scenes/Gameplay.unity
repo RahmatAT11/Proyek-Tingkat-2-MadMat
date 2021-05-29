@@ -370,6 +370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c952f9e00188c4caadbf19f6b5745b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _appBarController: {fileID: 496864312}
+  _homeController: {fileID: 1842469687}
+  _regionController: {fileID: 459926070}
+  _levelController: {fileID: 2100513095}
+  _quizController: {fileID: 335990158}
+  MenuFragment: 0
 --- !u!1 &214378483
 GameObject:
   m_ObjectHideFlags: 0
@@ -7835,6 +7841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1831328019}
+  - component: {fileID: 1831328020}
   m_Layer: 5
   m_Name: Option Menu
   m_TagString: Untagged
@@ -7868,6 +7875,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1831328020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831328018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00a5f1e4719bcb4c94cf444b0195a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1842469685
 GameObject:
   m_ObjectHideFlags: 0

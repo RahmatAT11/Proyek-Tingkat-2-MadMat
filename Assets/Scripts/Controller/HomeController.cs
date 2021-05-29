@@ -13,7 +13,9 @@ public class HomeController : MonoBehaviour
 
     [Header("Variabel User Interface")]
     [SerializeField] private GameObject _homeMenu;
+    public GameObject HomeMenu { get { return _homeMenu; } }
     [SerializeField] private GameObject _optionMenu;
+    public GameObject OptionMenu { get { return _optionMenu; } }
 
     private void Awake()
     {
@@ -27,16 +29,19 @@ public class HomeController : MonoBehaviour
     private void HandlePlayButton()
     {
         GameManager.Instance.AudioManager.PlayButtonTap();
+        GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.REGION);
     }
 
     private void HandleOptionButton()
     {
         GameManager.Instance.AudioManager.PlayButtonTap();
+        GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.OPTION);
     }
 
     private void HandleQuitButton()
     {
         GameManager.Instance.AudioManager.PlayButtonTap();
+        Application.Quit();
     }
     #endregion
 }
