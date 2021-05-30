@@ -42,6 +42,17 @@ public class QuizCompleteController : MonoBehaviour
         _correctAnswer.text = $"Total Correct : {correctAnswer}/{quizController.QuizSos.Count}";
         _knowledgePoint.text = $"Knowledge Points : {accumulatedKnowledgePoint}";
         ShowStar(accumulatedKnowledgePoint);
+
+        if (GameManager.Instance.IsSaveDataCreated == false)
+        {
+            List<RegionSO> regionSos = GameManager.Instance.RegionSOS;
+            SaveSystem.SavePlayerData(regionSos);
+
+            GameManager.Instance.IsSaveDataCreated = true;
+            int isSavedInNum = 1;
+            PlayerPrefs.SetInt("SAVED", isSavedInNum);
+            Debug.Log("Data is saved");
+        }
     }
 
     private void ShowStar(float accumulatedKnowledgePoint)

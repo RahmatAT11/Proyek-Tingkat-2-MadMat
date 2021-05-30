@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private QuizController _quizController;
     [SerializeField] private QuizCompleteController _quizCompleteController;
 
+    public RegionController RegionController
+    { get { return _regionController; } set { _regionController = value; } }
     public LevelController LevelController
     { get { return _levelController; } set {_levelController = value; } }
     public QuizController QuizController
