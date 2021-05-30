@@ -35,16 +35,7 @@ public class QuizController : MonoBehaviour
 
     private void Update()
     {
-        if (index == _quizSos.Count)
-        {
-            GameManager.Instance.AudioManager.PlayLevelComplete();
-            GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.Q_COMPLETE);
-            GameManager.Instance.UIManager.QuizCompleteController
-                .DisplayLevelComplete(accumulatedKnowledgePoint, correctAnswer);
-            index = 0;
-            accumulatedKnowledgePoint = 0;
-            correctAnswer = 0;
-        }
+        
     }
     #endregion
 
@@ -76,13 +67,20 @@ public class QuizController : MonoBehaviour
 
         _quizDisplayed.QuizSO.IsAnswerCorrect = isCorrect;
         _quizCorrectImage.color = normal;
-        UpdateDisplayQuiz();
+        StartCoroutine(WaitForSecs(3.5f));
     }
 
     public void UpdateDisplayQuiz()
     {
         if (index == _quizSos.Count)
         {
+            GameManager.Instance.AudioManager.PlayLevelComplete();
+            GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.Q_COMPLETE);
+            GameManager.Instance.UIManager.QuizCompleteController
+                .DisplayLevelComplete(accumulatedKnowledgePoint, correctAnswer);
+            index = 0;
+            accumulatedKnowledgePoint = 0;
+            correctAnswer = 0;
             return;
         }
         _quizDisplayed.QuizSO = _quizSos[index];
@@ -95,6 +93,14 @@ public class QuizController : MonoBehaviour
         _quizCorrectImage.sprite = _quizCorrectSprite;
         _quizCorrectImage.color = transparent;
         _quizInput.text = "";
+        _quizImage.sprite = _quizDisplayed.QuizSO.sprite;
+    }
+
+    private IEnumerator WaitForSecs(float second)
+    {
+        yield return new WaitForSecondsRealtime(second);
+
+        UpdateDisplayQuiz();
     }
     #endregion
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
   m_Name: Quiz_MEDIUM_3
   m_EditorClassIdentifier: 
-  Name: Rahmat
-  sprite: {fileID: 0}
+  Name: Kipas Angin
+  sprite: {fileID: 21300000, guid: f1920920f9e5cd0448077e913663df08, type: 3}
   IsAnswered: 0
   IsAnswerCorrect: 0
   InputByUser: 

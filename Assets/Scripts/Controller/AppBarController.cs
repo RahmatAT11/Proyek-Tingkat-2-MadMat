@@ -19,6 +19,25 @@ public class AppBarController : MonoBehaviour
         _upButton.onClick.AddListener(HandleUpButton);
     }
 
+    public void ChangeTitleText()
+    {
+        switch (GameManager.Instance.UIManager.MenuFragment)
+        {
+            case Fragment.OPTION:
+                _titleText.text = "Option";
+                break;
+            case Fragment.REGION:
+                _titleText.text = "Region Menu";
+                break;
+            case Fragment.LEVEL:
+                _titleText.text = "Level Menu";
+                break;
+            case Fragment.QUIZ:
+                _titleText.text = "Quiz";
+                break;
+        }
+    }
+
     private void HandleUpButton()
     {
         GameManager.Instance.AudioManager.PlayButtonTap();

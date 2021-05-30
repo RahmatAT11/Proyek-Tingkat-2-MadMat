@@ -112,6 +112,8 @@ public class UIManager : MonoBehaviour
                 _quizController.gameObject.SetActive(false);
                 break;
         }
+
+        _appBarController.ChangeTitleText();
     }
     #endregion
 }

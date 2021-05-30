@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerData playerData = SaveSystem.LoadPlayerData();
             RegionSOS = playerData.savedRegionSO;
+            Debug.Log("Get RegionSOS");
         }
 
         _uiManager = FindObjectOfType<UIManager>();

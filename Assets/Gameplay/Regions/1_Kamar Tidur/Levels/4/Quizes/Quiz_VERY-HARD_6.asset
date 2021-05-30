@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
   m_Name: Quiz_VERY-HARD_6
   m_EditorClassIdentifier: 
-  Name: 
-  sprite: {fileID: 0}
+  Name: Bangku Berlapis Kain
+  sprite: {fileID: 21300000, guid: a240b6cdec788e54bbfa95bf9e3fab24, type: 3}
   IsAnswered: 0
   IsAnswerCorrect: 0
   InputByUser: 

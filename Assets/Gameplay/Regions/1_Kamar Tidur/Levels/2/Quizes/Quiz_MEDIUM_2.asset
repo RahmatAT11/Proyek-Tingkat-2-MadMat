@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
   m_Name: Quiz_MEDIUM_2
   m_EditorClassIdentifier: 
-  Name: Rahmat
-  sprite: {fileID: 0}
+  Name: Lemari Rias
+  sprite: {fileID: 21300000, guid: 7f9c1564a5630514c8ad1793cd32d2ed, type: 3}
   IsAnswered: 0
   IsAnswerCorrect: 0
   InputByUser: 

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
   m_Name: Quiz_MEDIUM_1
   m_EditorClassIdentifier: 
-  Name: Rahmat
-  sprite: {fileID: 0}
+  Name: Lampu Lengan Seimbang
+  sprite: {fileID: 21300000, guid: 9c74f4fdfc640124682697c7103be61b, type: 3}
   IsAnswered: 0
   IsAnswerCorrect: 0
   InputByUser: 
