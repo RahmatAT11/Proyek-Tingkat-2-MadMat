@@ -23,6 +23,9 @@ public class QuizController : MonoBehaviour
 
     private int index = 0;
 
+    private float accumulatedKnowledgePoint = 0;
+    private int correctAnswer = 0;
+
     public List<QuizSO> QuizSos { get { return _quizSos; } set {_quizSos = value; } }
 
     private void Awake()
@@ -34,8 +37,13 @@ public class QuizController : MonoBehaviour
     {
         if (index == _quizSos.Count)
         {
+            GameManager.Instance.AudioManager.PlayLevelComplete();
             GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.Q_COMPLETE);
+            GameManager.Instance.UIManager.QuizCompleteController
+                .DisplayLevelComplete(accumulatedKnowledgePoint, correctAnswer);
             index = 0;
+            accumulatedKnowledgePoint = 0;
+            correctAnswer = 0;
         }
     }
     #endregion
@@ -49,6 +57,12 @@ public class QuizController : MonoBehaviour
 
         if (isCorrect)
         {
+            accumulatedKnowledgePoint += _quizDisplayed.QuizSO.knowledgePoint;
+            correctAnswer++;
+            _quizDisplayed.QuizSO.InputByUser = answer;
+
+            _quizDisplayed.QuizSO.IsAnswered = true;
+
             GameManager.Instance.AudioManager.PlayAfterCheckUserInput(isCorrect);
             _quizCorrectImage.sprite = _quizCorrectSprite;
             index++;
@@ -60,18 +74,23 @@ public class QuizController : MonoBehaviour
             _quizCorrectImage.sprite = _quizWrongSprite;
         }
 
+        _quizDisplayed.QuizSO.IsAnswerCorrect = isCorrect;
         _quizCorrectImage.color = normal;
         UpdateDisplayQuiz();
     }
 
     public void UpdateDisplayQuiz()
     {
+        if (index == _quizSos.Count)
+        {
+            return;
+        }
         _quizDisplayed.QuizSO = _quizSos[index];
         _quizDisplayed.SetQuiz();
         StartingColor();
     }
 
-    private void StartingColor()
+    public void StartingColor()
     {
         _quizCorrectImage.sprite = _quizCorrectSprite;
         _quizCorrectImage.color = transparent;

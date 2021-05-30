@@ -11,11 +11,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RegionController _regionController;
     [SerializeField] private LevelController _levelController;
     [SerializeField] private QuizController _quizController;
+    [SerializeField] private QuizCompleteController _quizCompleteController;
 
     public LevelController LevelController
     { get { return _levelController; } set {_levelController = value; } }
     public QuizController QuizController
     { get { return _quizController; } set { _quizController = value; } }
+    public QuizCompleteController QuizCompleteController
+    { get { return _quizCompleteController; } set {_quizCompleteController = value; } }
 
     public Fragment MenuFragment = Fragment.HOME;
 
@@ -28,6 +31,7 @@ public class UIManager : MonoBehaviour
         _regionController.gameObject.SetActive(false);
         _levelController.gameObject.SetActive(false);
         _quizController.gameObject.SetActive(false);
+        _quizCompleteController.gameObject.SetActive(false);
     }
     #endregion
 
@@ -48,6 +52,7 @@ public class UIManager : MonoBehaviour
                 _regionController.gameObject.SetActive(false);
                 _levelController.gameObject.SetActive(false);
                 _quizController.gameObject.SetActive(false);
+                _quizCompleteController.gameObject.SetActive(false);
                 break;
 
             case Fragment.OPTION:
@@ -58,6 +63,7 @@ public class UIManager : MonoBehaviour
                 _regionController.gameObject.SetActive(false);
                 _levelController.gameObject.SetActive(false);
                 _quizController.gameObject.SetActive(false);
+                _quizCompleteController.gameObject.SetActive(false);
                 break;
 
             case Fragment.REGION:
@@ -68,6 +74,7 @@ public class UIManager : MonoBehaviour
                 _homeController.OptionMenu.SetActive(false);
                 _levelController.gameObject.SetActive(false);
                 _quizController.gameObject.SetActive(false);
+                _quizCompleteController.gameObject.SetActive(false);
                 break;
 
             case Fragment.LEVEL:
@@ -78,6 +85,7 @@ public class UIManager : MonoBehaviour
                 _homeController.OptionMenu.SetActive(false);
                 _regionController.gameObject.SetActive(false);
                 _quizController.gameObject.SetActive(false);
+                _quizCompleteController.gameObject.SetActive(false);
                 break;
 
             case Fragment.QUIZ:
@@ -88,10 +96,11 @@ public class UIManager : MonoBehaviour
                 _homeController.OptionMenu.SetActive(false);
                 _regionController.gameObject.SetActive(false);
                 _levelController.gameObject.SetActive(false);
+                _quizCompleteController.gameObject.SetActive(false);
                 break;
 
             case Fragment.Q_COMPLETE:
-
+                _quizCompleteController.gameObject.SetActive(true);
 
                 _homeController.gameObject.SetActive(false);
                 _appBarController.gameObject.SetActive(false);

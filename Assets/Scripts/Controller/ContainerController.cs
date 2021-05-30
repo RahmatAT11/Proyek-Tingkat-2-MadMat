@@ -10,7 +10,6 @@ public class ContainerController : MonoBehaviour
     #region Inisialisasi Variabel
     [Header("Quiz Image")]
     [SerializeField] private List<QuizSO> _quizSos;
-    public List<QuizSO> QuizSOS { get { return _quizSos; } set {_quizSos = value; } }
     [SerializeField] private List<QuizDisplayController> _quizDisplayControllers;
     [SerializeField] private Sprite _correctPassmarkSprite;
     [SerializeField] private Sprite _wrongPassmarkSprite;
@@ -24,6 +23,10 @@ public class ContainerController : MonoBehaviour
 
     private readonly Color _red = Color.red;
     private readonly Color _green = Color.green;
+
+    public List<QuizSO> QuizSOS { get { return _quizSos; } set { _quizSos = value; } }
+
+    private float _accumulatedKnowledgePoint;
 
     private void Start()
     {
@@ -65,9 +68,10 @@ public class ContainerController : MonoBehaviour
                 totalKnowledgePoint += quizDisplayController.QuizSO.knowledgePoint;
             }
         }
-
+        _accumulatedKnowledgePoint = totalKnowledgePoint;
+        
         _answeredText.text = $"Answered : {totalCorrectAnswer}/{_quizDisplayControllers.Count}";
-        _knowledgePointText.text = $"Knowledge Points : {totalKnowledgePoint}";
+        _knowledgePointText.text = $"Knowledge Points : {_accumulatedKnowledgePoint}";
     }
 
     private void ChangeTextAndImagePreview()
@@ -94,8 +98,5 @@ public class ContainerController : MonoBehaviour
             quizPassmarkImage.color = _red;
         }
     }
-    #endregion
-
-    #region Mekanik Mengisi Quiz Preview
     #endregion
 }
