@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Level_3_Region_Kamar-Tidur
   m_EditorClassIdentifier: 
   ThisLevelQuizSos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 06a6be1701a95104ba4f0c373ed0fdaf, type: 2}
+  - {fileID: 11400000, guid: 26d78aa84199fbc42ad844a8b3eacc1c, type: 2}
+  - {fileID: 11400000, guid: f9a7042d0b9da4a489073ccec4a2162b, type: 2}
+  - {fileID: 11400000, guid: 2e3149c19be47b4418bde47c76929b59, type: 2}
+  - {fileID: 11400000, guid: 5459e0c5968dc85488f45995201ba0bf, type: 2}
+  - {fileID: 11400000, guid: dd041b893024b6b4486342093a8ce053, type: 2}
+  - {fileID: 11400000, guid: 17515c983cab1d649a8241fe08ddf50f, type: 2}
+  - {fileID: 11400000, guid: 5d47419a0343eca46a9f9750b051eb1f, type: 2}
+  - {fileID: 11400000, guid: 0201119fa9a562141b746bc07202d0d9, type: 2}
   LevelDifficulty: 2

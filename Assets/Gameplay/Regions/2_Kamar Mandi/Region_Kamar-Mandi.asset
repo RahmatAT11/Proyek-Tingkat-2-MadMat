@@ -15,7 +15,7 @@ MonoBehaviour:
   RegionName: Kamar Mandi
   RegionNames: 1
   ThisRegionLevelSos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7f6d8250a3482db41bee877f935f62b8, type: 2}
+  - {fileID: 11400000, guid: af1ca844d2f328a42a968a2395a5ed0e, type: 2}
+  - {fileID: 11400000, guid: 53af265ea73d9ad4dbc2a9a5c6fa1551, type: 2}
+  - {fileID: 11400000, guid: 983e1c0a42069c3489e1fb825b0d7db6, type: 2}

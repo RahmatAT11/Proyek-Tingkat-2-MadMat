@@ -24,11 +24,21 @@ public class ContainerController : MonoBehaviour
     private void Start()
     {
         #region Merubah Text quiz benar dan knowledge point
-        foreach (QuizDisplayController quizDisplayController in _quizDisplayControllers)
-        {
-            ChangePassmarkSprite(quizDisplayController.QuizSO.IsAnswerCorrect, quizDisplayController.PassmarkImage);
-        }
+        ChangeTextAndImagePreview();
+        ChangeKnowledgePoint();
+        #endregion
+    }
 
+    public void InsertQuizAndDisplay()
+    {
+        for (int i = 0; i < _quizDisplayControllers.Count; i++)
+        {
+            _quizDisplayControllers[i].QuizSO = _quizSos[i];
+        }
+    }
+
+    private void ChangeKnowledgePoint()
+    {
         int totalCorrectAnswer = 0;
         float totalKnowledgePoint = 0;
 
@@ -43,7 +53,15 @@ public class ContainerController : MonoBehaviour
 
         _answeredText.text = $"Answered : {totalCorrectAnswer}/{_quizDisplayControllers.Count}";
         _knowledgePointText.text = $"Knowledge Points : {totalKnowledgePoint}";
-        #endregion
+    }
+
+    private void ChangeTextAndImagePreview()
+    {
+        foreach (QuizDisplayController quizDisplayController in _quizDisplayControllers)
+        {
+            Debug.Log(quizDisplayController);
+            //ChangePassmarkSprite(quizDisplayController.QuizSO.IsAnswerCorrect, quizDisplayController.PassmarkImage);
+        }
     }
     #endregion
 

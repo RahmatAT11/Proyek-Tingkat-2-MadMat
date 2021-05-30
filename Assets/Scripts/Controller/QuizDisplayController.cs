@@ -10,7 +10,7 @@ public class QuizDisplayController : MonoBehaviour
     [SerializeField] private QuizSO _quizSO;
     [SerializeField] private Image _passmarkImage;
 
-    public QuizSO QuizSO { get { return _quizSO; } }
+    public QuizSO QuizSO { get { return _quizSO; } set {_quizSO = value; } }
     public Image PassmarkImage { get { return _passmarkImage; } }
     #endregion
 }

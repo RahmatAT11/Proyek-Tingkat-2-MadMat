@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468681fdf44d03f4fa856baaac9977ed, type: 3}
+  m_Name: Level_3_Region_Kamar-Mandi
+  m_EditorClassIdentifier: 
+  ThisLevelQuizSos:
+  - {fileID: 11400000, guid: a23ab5ddf6b27744d8f7fa96a2dd176d, type: 2}
+  - {fileID: 11400000, guid: 55ad5c63849a97c4e9512f40d5ec731c, type: 2}
+  - {fileID: 11400000, guid: 3307be0e1bd27974798c05a0c001bc15, type: 2}
+  - {fileID: 11400000, guid: e162540284e19754989c591a8f14892d, type: 2}
+  - {fileID: 11400000, guid: 151fa8a0f84f56f46925023431ce8bd4, type: 2}
+  - {fileID: 11400000, guid: 072c7822124e1a7408283b10bf12841c, type: 2}
+  - {fileID: 11400000, guid: 0cf885fbd913bc24bb4cc62a3e4f96c2, type: 2}
+  - {fileID: 11400000, guid: 9cf4a665521b4c94188a577860aac113, type: 2}
+  - {fileID: 11400000, guid: c0df922331e439f4da37a76ce850b22c, type: 2}
+  LevelDifficulty: 2
