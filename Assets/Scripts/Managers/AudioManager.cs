@@ -6,8 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     #region Inisialisasi Variabel
     [Header("Audio Sources")]
-    //[SerializeField] private AudioSource _backgroundMusic;
+    [SerializeField] private AudioSource _backgroundMusic;
+    public AudioSource BackgroundMusic { get { return _backgroundMusic; } set { _backgroundMusic = value; } }
     [SerializeField] private AudioSource _soundEffect;
+    public AudioSource SoundEffect { get { return _soundEffect; } set {_soundEffect = value; } }
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip _buttonTapSfx;

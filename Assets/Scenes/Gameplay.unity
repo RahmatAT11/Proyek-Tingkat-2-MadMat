@@ -2883,7 +2883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &698006409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4325,7 +4325,8 @@ AudioSource:
   m_GameObject: {fileID: 1046112134}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f3591319ad1e9ee4690f6cc1625a0c3c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5281,7 +5282,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1831328020}
+        m_MethodName: SetMuteAll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1195446363
 GameObject:
@@ -6493,6 +6505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ca915de673c9d4ba662d603df09eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _backgroundMusic: {fileID: 1805191574}
   _soundEffect: {fileID: 1046112136}
   _buttonTapSfx: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
   _levelCompleteSfx: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
@@ -7861,7 +7874,8 @@ AudioSource:
   m_GameObject: {fileID: 1805191572}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b9dda970f2e929441b4f83afcb572616,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1c4366a55180fad49b466a917f9ee9a5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8003,6 +8017,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00a5f1e4719bcb4c94cf444b0195a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sliderMasterVolume: {fileID: 1982691195}
+  _sliderMusicVolume: {fileID: 1954603427}
+  _toggleMuteVolume: {fileID: 1179185649}
+  _mixerMaster: {fileID: 24100000, guid: f3591319ad1e9ee4690f6cc1625a0c3c, type: 2}
+  _mixerMusic: {fileID: 24100000, guid: b9dda970f2e929441b4f83afcb572616, type: 2}
 --- !u!1 &1842469685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8779,13 +8798,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 1721900501}
   m_HandleRect: {fileID: 839230251}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1831328020}
+        m_MethodName: SetLevelMusic
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1982691193
 GameObject:
   m_ObjectHideFlags: 0
@@ -8868,13 +8898,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 688804925}
   m_HandleRect: {fileID: 914934352}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1831328020}
+        m_MethodName: SetLevelMaster
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2082242387
 PrefabInstance:
   m_ObjectHideFlags: 0
