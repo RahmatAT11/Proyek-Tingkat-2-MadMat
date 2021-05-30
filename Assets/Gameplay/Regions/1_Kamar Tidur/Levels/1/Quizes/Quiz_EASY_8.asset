@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
   m_Name: Quiz_EASY_8
   m_EditorClassIdentifier: 
-  Name: 
+  Name: mamat
   sprite: {fileID: 0}
   IsAnswered: 0
   IsAnswerCorrect: 0

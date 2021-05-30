@@ -41,6 +41,7 @@ public class ContainerController : MonoBehaviour
         quizController.QuizSos = _quizSos;
 
         GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.QUIZ);
+        GameManager.Instance.UIManager.QuizController.UpdateDisplayQuiz();
     }
 
     public void InsertQuizAndDisplay()

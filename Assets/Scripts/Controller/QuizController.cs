@@ -21,12 +21,22 @@ public class QuizController : MonoBehaviour
     private Color transparent = new Color(255, 255, 255, 0);
     private Color normal = Color.white;
 
+    private int index = 0;
+
     public List<QuizSO> QuizSos { get { return _quizSos; } set {_quizSos = value; } }
 
     private void Awake()
     {
-        _quizCorrectImage.sprite = _quizCorrectSprite;
-        _quizCorrectImage.color = transparent;
+        StartingColor();
+    }
+
+    private void Update()
+    {
+        if (index == _quizSos.Count)
+        {
+            GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.Q_COMPLETE);
+            index = 0;
+        }
     }
     #endregion
 
@@ -39,15 +49,33 @@ public class QuizController : MonoBehaviour
 
         if (isCorrect)
         {
+            GameManager.Instance.AudioManager.PlayAfterCheckUserInput(isCorrect);
             _quizCorrectImage.sprite = _quizCorrectSprite;
+            index++;
         }
 
         else
         {
+            GameManager.Instance.AudioManager.PlayAfterCheckUserInput(isCorrect);
             _quizCorrectImage.sprite = _quizWrongSprite;
         }
 
         _quizCorrectImage.color = normal;
+        UpdateDisplayQuiz();
+    }
+
+    public void UpdateDisplayQuiz()
+    {
+        _quizDisplayed.QuizSO = _quizSos[index];
+        _quizDisplayed.SetQuiz();
+        StartingColor();
+    }
+
+    private void StartingColor()
+    {
+        _quizCorrectImage.sprite = _quizCorrectSprite;
+        _quizCorrectImage.color = transparent;
+        _quizInput.text = "";
     }
     #endregion
 }
