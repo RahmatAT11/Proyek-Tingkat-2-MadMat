@@ -21,6 +21,8 @@ public class QuizController : MonoBehaviour
     private Color transparent = new Color(255, 255, 255, 0);
     private Color normal = Color.white;
 
+    public List<QuizSO> QuizSos { get { return _quizSos; } set {_quizSos = value; } }
+
     private void Awake()
     {
         _quizCorrectImage.sprite = _quizCorrectSprite;

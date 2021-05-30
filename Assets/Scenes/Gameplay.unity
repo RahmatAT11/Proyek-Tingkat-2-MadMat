@@ -2348,6 +2348,7 @@ MonoBehaviour:
     type: 3}
   _answeredText: {fileID: 503603717}
   _knowledgePointText: {fileID: 503603716}
+  _containerButton: {fileID: 1324146226}
 --- !u!1 &555346396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,6 +3053,7 @@ MonoBehaviour:
     type: 3}
   _answeredText: {fileID: 1765316512}
   _knowledgePointText: {fileID: 375585680}
+  _containerButton: {fileID: 2134668193}
 --- !u!1 &775322108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3616,6 +3618,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839230250}
   m_CullTransparentMesh: 0
+--- !u!114 &850855749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1894648016981194370, guid: 9d42f15f7da134c4493e9514c60fedb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2082242387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876431629
 GameObject:
   m_ObjectHideFlags: 0
@@ -6326,6 +6340,19 @@ MonoBehaviour:
     type: 3}
   _answeredText: {fileID: 1318170040}
   _knowledgePointText: {fileID: 1318170039}
+  _containerButton: {fileID: 1780541563}
+--- !u!114 &1324146226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1894648016981194370, guid: 9d42f15f7da134c4493e9514c60fedb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 503603714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1352459999
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,6 +7861,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766746146}
   m_CullTransparentMesh: 0
+--- !u!114 &1780541563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1894648016981194370, guid: 9d42f15f7da134c4493e9514c60fedb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1318170037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1805191572
 GameObject:
   m_ObjectHideFlags: 0
@@ -9663,6 +9702,7 @@ MonoBehaviour:
     type: 3}
   _answeredText: {fileID: 2082242390}
   _knowledgePointText: {fileID: 2082242389}
+  _containerButton: {fileID: 850855749}
 --- !u!114 &2095653011 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6734529359831424601, guid: 9d42f15f7da134c4493e9514c60fedb4,
@@ -10005,6 +10045,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quizSO: {fileID: 0}
   _passmarkImage: {fileID: 212560066}
+--- !u!114 &2134668193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1894648016981194370, guid: 9d42f15f7da134c4493e9514c60fedb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6734529361520230090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6734529361520230090
 PrefabInstance:
   m_ObjectHideFlags: 0

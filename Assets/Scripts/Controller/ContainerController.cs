@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ContainerController : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class ContainerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _answeredText;
     [SerializeField] private TextMeshProUGUI _knowledgePointText;
 
+    [Header("Button")]
+    [SerializeField] private Button _containerButton;
+
     private readonly Color _red = Color.red;
     private readonly Color _green = Color.green;
 
@@ -27,6 +31,16 @@ public class ContainerController : MonoBehaviour
         ChangeTextAndImagePreview();
         ChangeKnowledgePoint();
         #endregion
+
+        _containerButton.onClick.AddListener(HandleContainerButton);
+    }
+
+    private void HandleContainerButton()
+    {
+        QuizController quizController = GameManager.Instance.UIManager.QuizController;
+        quizController.QuizSos = _quizSos;
+
+        GameManager.Instance.UIManager.ChangeMenuFragment(Fragment.QUIZ);
     }
 
     public void InsertQuizAndDisplay()
@@ -59,8 +73,7 @@ public class ContainerController : MonoBehaviour
     {
         foreach (QuizDisplayController quizDisplayController in _quizDisplayControllers)
         {
-            Debug.Log(quizDisplayController);
-            //ChangePassmarkSprite(quizDisplayController.QuizSO.IsAnswerCorrect, quizDisplayController.PassmarkImage);
+            ChangePassmarkSprite(quizDisplayController.QuizSO.IsAnswerCorrect, quizDisplayController.PassmarkImage);
         }
     }
     #endregion
