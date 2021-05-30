@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _correctAnswerSfx;
     #endregion
 
-    #region Play Sound
+    #region Mekanik Play Sound
     public void PlayButtonTap()
     {
         _soundEffect.PlayOneShot(_buttonTapSfx);
@@ -38,5 +38,8 @@ public class AudioManager : MonoBehaviour
             _soundEffect.PlayOneShot(_wrondAnswerSfx);
         }
     }
+    #endregion
+
+    #region Mekanik Mengubah Volume
     #endregion
 }

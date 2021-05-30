@@ -7,5 +7,6 @@ public class RegionSO : ScriptableObject
 {
     [Header("Nama dan LevelSO")]
     public string RegionName;
+    public RegionNames RegionNames = RegionNames._1_KAMAR_TIDUR;
     public List<LevelSO> ThisRegionLevelSos;
 }

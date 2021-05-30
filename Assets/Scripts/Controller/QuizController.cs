@@ -12,6 +12,7 @@ public class QuizController : MonoBehaviour
     [SerializeField] private Quiz _quizDisplayed;
     [SerializeField] private TMP_InputField _quizInput;
     [SerializeField] private Image _quizCorrectImage;
+    [SerializeField] private List<QuizSO> _quizSos;
 
     [Header("Quiz Correct Image Sprite")]
     [SerializeField] private Sprite _quizCorrectSprite;

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Quiz : MonoBehaviour
 {
     [SerializeField]
+    private QuizSO _quizSO;
     private string _name;
     public string Name { get { return _name; } }
     [SerializeField] private Sprite _sprite;

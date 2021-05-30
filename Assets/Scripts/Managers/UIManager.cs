@@ -12,6 +12,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private LevelController _levelController;
     [SerializeField] private QuizController _quizController;
 
+    public LevelController LevelController
+    { get { return _levelController; } set {_levelController = value; } }
+    public QuizController QuizController
+    { get { return _quizController; } set { _quizController = value; } }
+
     public Fragment MenuFragment = Fragment.HOME;
 
     private void Start()
@@ -23,11 +28,6 @@ public class UIManager : MonoBehaviour
         _regionController.gameObject.SetActive(false);
         _levelController.gameObject.SetActive(false);
         _quizController.gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-        
     }
     #endregion
 

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5001fca3234bf478e0dd539756dac7, type: 3}
-  m_Name: Region_KamarTidur
+  m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
+  m_Name: Quiz_EASY_5
   m_EditorClassIdentifier: 
-  RegionName: 
-  ThisRegionLevelSos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Name: 
+  sprite: {fileID: 0}
+  IsAnswered: 0
+  IsAnswerCorrect: 0
+  InputByUser: 
+  knowledgePoint: 5

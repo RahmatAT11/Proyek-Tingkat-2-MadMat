@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468681fdf44d03f4fa856baaac9977ed, type: 3}
+  m_Name: Level_1_Region_Kamar-Tidur
+  m_EditorClassIdentifier: 
+  ThisLevelQuizSos:
+  - {fileID: 11400000, guid: 6fe391d4219e3b741a6138638294b2e7, type: 2}
+  - {fileID: 11400000, guid: fc6467e9c5a5bed44986c5e7bcfb5061, type: 2}
+  - {fileID: 11400000, guid: 1bf5c8b9cce21c8448f40ad65b6b6384, type: 2}
+  - {fileID: 11400000, guid: 26909bb1983b95f45bd3deb0c0fd944e, type: 2}
+  - {fileID: 11400000, guid: 4fcac9a67b771e848b0e05bcab8b7a04, type: 2}
+  - {fileID: 11400000, guid: c72a178644ee83547b3ea22bff547394, type: 2}
+  - {fileID: 11400000, guid: 7c5835fd7c034624694352f200ca4cf7, type: 2}
+  - {fileID: 11400000, guid: ce88e901ae4670241825a7919d26d60c, type: 2}
+  - {fileID: 11400000, guid: 248b42130ea7b424c8be5efa473b6f18, type: 2}
+  LevelDifficulty: 0

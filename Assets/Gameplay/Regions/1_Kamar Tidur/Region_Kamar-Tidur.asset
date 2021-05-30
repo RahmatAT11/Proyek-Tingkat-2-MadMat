@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5001fca3234bf478e0dd539756dac7, type: 3}
+  m_Name: Region_Kamar-Tidur
+  m_EditorClassIdentifier: 
+  RegionName: Kamar Tidur
+  RegionNames: 0
+  ThisRegionLevelSos:
+  - {fileID: 11400000, guid: 591ae52927a4cf545bc4ab1b1ca4c4c0, type: 2}
+  - {fileID: 11400000, guid: c17955e7579be27458bdbd2f9c0be941, type: 2}
+  - {fileID: 11400000, guid: 6d6c17bb88a3e074790f307a3f51a204, type: 2}
+  - {fileID: 11400000, guid: 193db90ad5aee1940a2efbebf2389342, type: 2}

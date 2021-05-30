@@ -8,6 +8,8 @@ public class ContainerController : MonoBehaviour
 {
     #region Inisialisasi Variabel
     [Header("Quiz Image")]
+    [SerializeField] private List<QuizSO> _quizSos;
+    public List<QuizSO> QuizSOS { get { return _quizSos; } set {_quizSos = value; } }
     [SerializeField] private List<QuizDisplayController> _quizDisplayControllers;
     [SerializeField] private Sprite _correctPassmarkSprite;
     [SerializeField] private Sprite _wrongPassmarkSprite;
@@ -60,5 +62,8 @@ public class ContainerController : MonoBehaviour
             quizPassmarkImage.color = _red;
         }
     }
+    #endregion
+
+    #region Mekanik Mengisi Quiz Preview
     #endregion
 }

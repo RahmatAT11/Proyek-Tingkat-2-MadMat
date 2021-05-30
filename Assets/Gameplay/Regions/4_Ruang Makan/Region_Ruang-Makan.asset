@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360a9e7b38f0b854f9bc6bdbda67b684, type: 3}
-  m_Name: Quiz_Easy
+  m_Script: {fileID: 11500000, guid: df5001fca3234bf478e0dd539756dac7, type: 3}
+  m_Name: Region_Ruang-Makan
   m_EditorClassIdentifier: 
-  Name: kasur
-  sprite: {fileID: 21300000, guid: 7d5b44da2712fb247bda6c025ce15d97, type: 3}
-  IsAnswered: 0
-  IsAnswerCorrect: 0
-  InputByUser: 
-  knowledgePoint: 5
+  RegionName: Ruang Makan
+  RegionNames: 3
+  ThisRegionLevelSos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
