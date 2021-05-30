@@ -30,11 +30,6 @@ public class ContainerController : MonoBehaviour
 
     private void Start()
     {
-        #region Merubah Text quiz benar dan knowledge point
-        ChangeTextAndImagePreview();
-        ChangeKnowledgePoint();
-        #endregion
-
         _containerButton.onClick.AddListener(HandleContainerButton);
     }
 
@@ -55,7 +50,7 @@ public class ContainerController : MonoBehaviour
         }
     }
 
-    private void ChangeKnowledgePoint()
+    public void ChangeKnowledgePoint()
     {
         int totalCorrectAnswer = 0;
         float totalKnowledgePoint = 0;
@@ -74,7 +69,7 @@ public class ContainerController : MonoBehaviour
         _knowledgePointText.text = $"Knowledge Points : {_accumulatedKnowledgePoint}";
     }
 
-    private void ChangeTextAndImagePreview()
+    public void ChangeTextAndImagePreview()
     {
         foreach (QuizDisplayController quizDisplayController in _quizDisplayControllers)
         {

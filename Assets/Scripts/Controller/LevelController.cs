@@ -19,6 +19,8 @@ public class LevelController : MonoBehaviour
         {
             _containerControllers[i].QuizSOS = _levelSOS[i].ThisLevelQuizSos;
             _containerControllers[i].InsertQuizAndDisplay();
+            _containerControllers[i].ChangeKnowledgePoint();
+            _containerControllers[i].ChangeTextAndImagePreview();
         }
     }
     #endregion
